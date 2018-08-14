@@ -77,7 +77,7 @@ public void setTime(int hour, int minute, String periodo)
                 displayString = hours.getDisplayValue() + ":" + 
                                 minutes.getDisplayValue() + " " + periodo;
         } else {
-                if(periodo == "AM"){
+                if(periodo.equals("AM")){
                         displayString = hours.getDisplayValue() + ":" + 
                                         minutes.getDisplayValue() + " " + "PM";
                 } else {
