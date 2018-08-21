@@ -2,7 +2,7 @@ public class Prova{
 	private double notaParte1;
 	private double notaParte2;
 	
-	public Prova(float nota1, float nota2){
+	public Prova(double nota1, double nota2){
 		notaParte1 = nota1;
 		notaParte2 = nota2;
 	}
