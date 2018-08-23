@@ -1,5 +1,5 @@
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * InputReader reads typed text input from the standard text terminal. 
@@ -25,7 +25,7 @@ public class InputReader
      * @return  A set of Strings, where each String is one of the 
      *          words typed by the user
      */
-    public HashSet<String> getInput() 
+    public ArrayList<String> getInput() 
     {
         System.out.print("> ");                // print prompt
         String inputLine = reader.nextLine().trim().toLowerCase();
@@ -33,10 +33,11 @@ public class InputReader
         String[] wordArray = inputLine.split(" ");  // split at spaces
 
         // add words from array into hashset 
-        HashSet<String> words = new HashSet<String>();
+        ArrayList<String> words = new ArrayList<String>();
         for(String word : wordArray) {
             words.add(word);
         }
         return words;
     }
+
 }

@@ -1,4 +1,5 @@
-import java.util.HashSet;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 /**
  * This class implements a technical support system.
@@ -14,7 +15,6 @@ import java.util.HashSet;
 public class SupportSystem
 {
     private InputReader reader;
-    private Responder responder;
     
     /**
      * Creates a technical support system.
@@ -22,7 +22,6 @@ public class SupportSystem
     public SupportSystem()
     {
         reader = new InputReader();
-        responder = new Responder();
     }
 
     /**
@@ -36,18 +35,39 @@ public class SupportSystem
         printWelcome();
 
         while(!finished) {
-            HashSet<String> input = reader.getInput();
+            ArrayList<String> input = reader.getInput();
 
-            if(input.contains(".")) {
+            if(input.contains("bye")) {
                 finished = true;
             }
             else {
-                String response = responder.generateResponse(input);
-                System.out.println(response);
+                countWords(input);
             }
         }
         printGoodbye();
     }
+
+    public void countWords(ArrayList<String> received){
+	Iterator<String> iter = received.iterator();
+	int count = 0;
+	ArrayList<String> frequency = new ArrayList<String>();	
+
+	for(String word: received){
+		while(iter.hasNext()){
+			if(iter.next().equals(word)){
+				count++;
+			}
+		}
+		if(!frequency.contains(word)){
+			frequency.add(word);
+			System.out.println(word + ": " + count);
+		}
+		count = 0;
+		iter = received.iterator();
+	}
+	
+    }
+
 
     /**
      * Print a welcome message to the screen.
@@ -55,7 +75,7 @@ public class SupportSystem
     private void printWelcome()
     {
         System.out.println("Welcome! You can start writing the phrase from which the words will be counted.");
-        System.out.println("Please type '.' at the end of your phrase to exit our system.");
+        System.out.println("Please type 'bye' if you want to exit our system.");
     }
 
     /**
