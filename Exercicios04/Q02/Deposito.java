@@ -11,4 +11,23 @@ public class Deposito extends Produto{
 		storage.add(produto);
 	}	
 
+	public void rmProduto(){
+		
+	}
+
+	public int getNumProdutos(){
+		return storage.size();
+	}
+
+	public boolean isEmpty(){
+		if(storage.size() == 0){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String biggerValue(){
+	
+	}
 }
