@@ -7,11 +7,19 @@ public class ContaPoupanca extends ContaBancaria{
 	}
 
 	public void calcularNovoSaldo(double taxa){
-
+		
 	}
 
 	public String toString(){
 
 	}
 
+	public int getDia_De_Rendimento(){
+		return dia_de_rendimento;
+	}
+
+	public void imprimirDados(){
+		super.imprimirDados();
+		System.out.println("\n    Dia de rendimento: " + getDia_De_Rendimento());
+	}
 }

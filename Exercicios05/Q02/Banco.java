@@ -7,7 +7,15 @@ public class Banco{
 		bank = new ArrayList<ContaBancaria>();
 	}
 
-	
+	public void addConta(ContaBancaria conta){
+		bank.add(conta);
+	}
+
+	public void detalhesContas(){
+		for(ContaBancaria current: bank){
+			current.imprimirDados();
+		}
+	}
 }
 
 
